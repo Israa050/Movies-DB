@@ -59,9 +59,6 @@ dependencies:
   #from a concrete implementation and to access the concrete implementation from everywhere in your App"
   get_it: ^8.2.0
 
-  # An SVG rendering and widget library for Flutter, which allows painting 
-  flutter_svg: ^2.2.1
-
 
   #an easy way to add shimmer effect 
   shimmer: ^3.0.0
