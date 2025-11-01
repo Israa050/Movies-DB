@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_db/core/helper/extensions.dart';
+import 'package:movies_db/core/routing/routes.dart';
 import 'package:movies_db/features/movies/cubit/movies_cubit.dart';
 import 'package:movies_db/features/movies/data/models/api_response.dart';
 import 'package:movies_db/features/movies/presentation/widgets/movie_card_info.dart';
@@ -29,7 +31,7 @@ class MoviesList extends StatelessWidget {
               if (index < movies.length) {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 10),
-                  child: MovieCardInfo(movie: movies[index]),
+                  child: GestureDetector(onTap: () => context.pushNamed(Routes.movieDetailsScreen,arguments: movies[index]), child: MovieCardInfo(movie: movies[index])),
                 );
               } else if (isLoading) {
                 // Show a loading spinner at the bottom of the list while loading more data

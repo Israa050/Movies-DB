@@ -25,12 +25,15 @@ class MovieCardInfo extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
         child: Row(
           children: [
-            Container(
-              height: 100,
-              width: 100,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                image: DecorationImage(image: CachedNetworkImageProvider('https://image.tmdb.org/t/p/w500${movie.posterPath}',),fit: BoxFit.cover)
+            Hero(
+              tag: movie.id!,
+              child: Container(
+                height: 100,
+                width: 100,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  image: DecorationImage(image: CachedNetworkImageProvider('https://image.tmdb.org/t/p/w500${movie.posterPath}',),fit: BoxFit.cover)
+                ),
               ),
             ),
 
