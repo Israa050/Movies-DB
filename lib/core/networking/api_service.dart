@@ -3,35 +3,23 @@
 
 
 
-// import 'package:store_app/features/home/data/models/offer.dart';
-// import 'package:store_app/features/home/data/models/product.dart';
-// import 'package:store_app/features/review/data/models/review.dart';
+import 'package:dio/dio.dart';
+import 'package:movies_db/core/networking/api_constances.dart';
+import 'package:movies_db/features/movies/data/models/api_response.dart';
+import 'package:retrofit/error_logger.dart';
+import 'package:retrofit/http.dart';
 
 
-// part 'api_service.g.dart';
+part 'api_service.g.dart';
 
 
-// @RestApi(baseUrl: ApiConstants.apiBaseUrl)
-// abstract class ApiService {
+@RestApi(baseUrl: ApiConstances.apiBaseUrl)
+abstract class ApiService {
 
-//      factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
-
-
-//   @GET(ApiConstants.products)
-//   Future<Products> getProducts();
-
-//   @GET(ApiConstants.categories)
-//   Future<CategoryModel> getCategories();
-
-//   @GET(ApiConstants.offers)
-//   Future<Offers> getOffers();
-
-//   @GET('${ApiConstants.products}/{Id}')
-//   Future<Product> getProductByID(@Path("Id") String id);
-
-//   @GET('${ApiConstants.reviews}/{Id}')
-//   Future<ReviewModel> getProductReviws(@Path("Id") String id);
+    factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
 
+  @GET(ApiConstances.popular)
+  Future<ApiResponse> getPopularMovies( @Query('page') int page);
 
-// }
+}
