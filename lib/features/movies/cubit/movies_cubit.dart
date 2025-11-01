@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_db/core/networking/api_error_model.dart';
+import 'package:movies_db/features/movies/data/local/hive_service.dart';
 import 'package:movies_db/features/movies/data/models/api_response.dart';
 import 'package:movies_db/features/movies/data/repos/movies_repo.dart';
 
@@ -41,7 +42,7 @@ class MoviesCubit extends Cubit<MoviesState> {
     final response = await moviesRepo.getPopularMovies(currentPage);
 
     response.when(
-      onSuccess: (movies) {
+      onSuccess: (movies) async{
         // Check if we've reached the last page
         if (movies.page! >= movies.totalPages!) {
           hasMore = false;
@@ -50,11 +51,16 @@ class MoviesCubit extends Cubit<MoviesState> {
           moviesList.addAll(movies.results!);
           currentPage++;  // Move to the next page
         }
-
+       await HiveService.cacheMovies(movies);
         emit(MoviesLoaded(movies: moviesList));  // Emit updated list
       },
       onError: (error) {
+        final data = HiveService.getMovies();
+        if(data != null){
+          emit(MoviesLoaded(movies: data.results!));
+        }else{
         emit(MoviesFailure(error: error));
+        }
       },
     );
   }

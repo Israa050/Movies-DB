@@ -45,10 +45,10 @@ dependencies:
 
   #retrofit.dart is an dio client generator using source_gen and inspired by Chopper and Retrofit.
   retrofit: ^4.7.3 
-  retrofit_generator: ^10.0.6
+  #retrofit_generator:
 
   #Automatically generate code for converting to and from JSON by annotating Dart classes.
-  json_serializable: ^6.11.1
+  #json_serializable: null
 
   #Classes and helper functions that support JSON code generation via the `json_serializable` package.
   json_annotation: ^4.9.0
@@ -70,12 +70,18 @@ dependencies:
 
   sentry_flutter: ^9.7.0
   flutter_dotenv: ^6.0.0
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   #A build system for Dart code generation and modular compilation.
-  build_runner: ^2.9.0
+  build_runner: 
+  hive_generator:
+  retrofit_generator:
+
+  
 
 
 

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_db/features/movies/cubit/movies_cubit.dart';
 import 'package:movies_db/features/movies/presentation/widgets/movies_list.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
 
 class MoviesListBuilder extends StatefulWidget {
   const MoviesListBuilder({super.key});
@@ -26,8 +25,6 @@ class _MoviesListBuilderState extends State<MoviesListBuilder> {
       _moviesFetched = true; // Mark that movies have been fetched
     }
   }
-
-
 
   void getMovies()async{
       await context.watch<MoviesCubit>().getPopularMovies();

@@ -18,6 +18,7 @@ ThemeData lightTheme = ThemeData(
   ),
   textTheme: TextTheme(
     headlineMedium: TextStyles.font20WhiteBold,
+    headlineSmall:TextStyles.font20WhiteBold.copyWith(color: AppColors.darkGrey) ,
     titleLarge: TextStyles.font16BlackSemiBold,
     bodyLarge: TextStyles.font14BlackRegular,
     bodyMedium: TextStyles.font12BlackRegular,
@@ -47,6 +48,7 @@ ThemeData darkTheme = ThemeData(
   ),
   textTheme: TextTheme(
     headlineMedium: TextStyles.font20WhiteBold,
+    headlineSmall:TextStyles.font20WhiteBold ,
     titleLarge: TextStyles.font16WhiteSemiBold,
     bodyLarge: TextStyles.font14WhiteRegular,
     bodyMedium: TextStyles.font12WhiteRegular,

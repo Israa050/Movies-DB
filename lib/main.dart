@@ -6,9 +6,12 @@ import 'package:movies_db/core/global/cubit/app_theme_cubit.dart';
 import 'package:movies_db/core/routing/app_router.dart';
 import 'package:movies_db/core/routing/routes.dart';
 import 'package:movies_db/core/themes/app_theme.dart';
+import 'package:movies_db/features/movies/data/local/hive_service.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
 void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await HiveService.init();
   await dotenv.load(fileName: ".env");
   await setupGetIt();
    await SentryFlutter.init(
