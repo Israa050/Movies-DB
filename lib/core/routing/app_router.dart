@@ -1,6 +1,9 @@
-
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_db/core/di/dependency_injection.dart';
+import 'package:movies_db/core/routing/routes.dart';
+import 'package:movies_db/features/movies/cubit/movies_cubit.dart';
+import 'package:movies_db/features/movies/presentation/screens/movies_list_screen.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -8,8 +11,13 @@ class AppRouter {
     final arguments = settings.arguments;
 
     switch (settings.name) {
-     
-     
+      case Routes.moviesScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<MoviesCubit>(),
+            child: MoviesListScreen(),
+          ),
+        );
     }
     return null;
   }

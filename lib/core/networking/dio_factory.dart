@@ -30,7 +30,7 @@ class DioFactory {
     dio?.options.headers = {
       'Accept': 'application/json',
       'Authorization':
-          'Bearer ',
+      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZmNlZDJmZTgxZWM1ODhkNGU3NGUwOGQxYmNjODM1OCIsIm5iZiI6MTY4NzI2ODQyNC4wODA5OTk5LCJzdWIiOiI2NDkxYWM0OGMyZmYzZDAwYzU5YmMzYmEiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.FVYqH26FQG1pItGS2LzVvgLg9Mq-64yuB1FV-mgOMbo',
     };
   }
 
