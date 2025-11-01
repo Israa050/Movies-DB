@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:movies_db/core/di/dependency_injection.dart';
 import 'package:movies_db/core/global/cubit/app_theme_cubit.dart';
 import 'package:movies_db/core/routing/app_router.dart';
@@ -8,6 +9,7 @@ import 'package:movies_db/core/themes/app_theme.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
 void main() async{
+  await dotenv.load(fileName: ".env");
   await setupGetIt();
    await SentryFlutter.init(
     (options) {
